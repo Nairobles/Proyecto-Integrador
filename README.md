@@ -1,10 +1,12 @@
-# Practica Integradora
+# Big Data
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/456ba8fc-ec3d-4f67-8a95-0ccfc2545c67)
 
-El objetivo principal de este trabajo es simular un ambiente de trabajo donde se nos solicita, desde un área de innovación, construir un Producto Viable Minimo de un ambiente de Big Data. Para lograr este objetivo debemos trasladar archivos CSV, que anteriormente se utilizacan en un Datawarehouse en MySQL, a un entorno de **Hadoop**.
 
-Se debe tener en cuenta que la gerencia de Infraestructura no está totalmente convencida de utilizar esta tecnología, por lo tanto no ha asignado preupuesto alguno para esta iniciativa. Es por ello que todo el MVP se deberá implementar utilizando **Docker** de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
+El objetivo principal de este trabajo es simular un ambiente de trabajo donde se nos solicita, desde un área de innovación, construir un Producto Viable Minimo(MVP) de un ambiente de Big Data. Para lograr este objetivo debemos trasladar archivos CSV (que anteriormente se utilizaban en un Datawarehouse en MySQL) a un entorno de **Hadoop**.
 
-Nos vamos a encontrar trabajando con un entorno Docker con Hadoop(HDFS) y las siquientes herramientas:
+Se debe tener en cuenta que la gerencia de Infraestructura no está totalmente convencida de utilizar esta tecnología, por lo tanto no ha asignado presupuesto alguno para esta iniciativa. Es por ello que todo el MVP se deberá implementar utilizando **Docker** de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
+
+Nos vamos a encontrar trabajando con un entorno Docker con Hadoop(HDFS) e implementando las siquientes herramientas:
 * Spark
 * Hive
 * HBase
@@ -13,33 +15,84 @@ Nos vamos a encontrar trabajando con un entorno Docker con Hadoop(HDFS) y las si
 * Zeppelin
 * Kafka
 
+Si no estas interiorizado en el mundo de la Big Data, te invito a leer el siguiente articulo:
+https://www.powerdata.es/big-data
+
 ## ¡Comencemos! ##
 
 1)El primer paso será dar inicio a nuestra maquina virtual y posicionarnos en la consola de Putty donde ejecutaremos los siguientes comandos:
 
-Clonar el repositorio
+Clonar el repositorio:
 ```
-git clone https://github.com/lopezdar222/herramientas_big_data.git
+git clone https://github.com/Nairobles/Proyecto-Integrador.git
 ```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/62d00604-c9de-4ddf-aea2-498e793d3ff2)
 
-
-cd herramientas_big_data
-  sudo docker-compose -f docker-compose-vX.yml up -d
+Nos ubicamos en el directorio 'Proyecto-Integrador':
 ```
+cd Proyecto-Integrador
+```
+Y ejecutamos el siguiente comando que permite dar inicio y ejecución de los servicios en contenedores de Docker:
 
-## 1) HDFS
+```
+sudo docker-compose -f docker-compose-vX.yml up -d
+```
+*Nota: En este caso reemplazaremos la 'X' de 'vX' por el valor '1' para dar inicio a la practica pero van a ir adquiriendo nuevos valores: 2, 3 y 4 ya que los mismos hacen referencia a distintos entornos.*
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7377c84c-6515-4711-a444-11dd9000c146)
 
-Se puede utilizar el entorno docker-compose-v1.yml
+## Copia de archivos
+2) En este punto nos vamos a encontrar trabajando con un sistema de archivos distribuido diseñado específicamente para manejar grandes volúmenes de datos. Recibe el nombre de **HDFS** y es el componente de almacenamiento distribuido central de Hadoop.
 
-Copiar los archivos ubicados en la carpeta Datasets, dentro del contenedor "namenode"
+Como mencioné en el paso anterior, vamos a utilizar el entorno 'docker-compose-v1.yml' para dar inicio:
 
+```
+sudo docker-compose -f docker-compose-v1.yml up -d
+```
+Vamos a acceder a una sesión interactiva dentro del contenedor Docker "namenode", específicamente ejecutando el shell Bash dentro de él.
 ```
   sudo docker exec -it namenode bash
+```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/f9b3fc27-01a0-43f9-8cb6-68762f96c6af)
+
+Volvemos al directorio 'home'
+```
   cd home
-  mkdir Datasets
-  exit
+```
+
+El comando "mkdir Datasets"(mkdir= make directory) se utiliza para crear un nuevo directorio (carpeta) llamado "Datasets" en el directorio actual.
+```
+mkdir Datasets
+```
+Salimos de la sesión interactiva de shell
+```
+exit
+```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/d2708426-4bd8-45e2-ad2b-8a30abd72a3e)
+
+Y finalmente copiamos los archivos ubicados en la carpeta Datasets dentro del contenedor "namenode":
+
+a)Podemos copiarlos uno por uno, de la carpeta Datasets, con el siguiente comando:
+```
   sudo docker cp <path><archivo> namenode:/home/Datasets/<archivo>
 ```
+Por ejemplo:
+```
+ sudo docker cp Datasets/canaldeventa/CanalDeVenta.csv namenode:/home/Datasets/canaldeventa/CanalDeVenta.csv
+```
+b)O bien ejecutamos el archivo 'Paso00.sh' que contiene los comandos para copiar los archivos al namenode. 
+
+*Nota: Si tomamos este camino primero debemos modificar algunos permisos para que el archivo sea ejecutable:*
+
+Permisos:
+```
+sudo chmod +x Paso00.sh
+```
+Ejecución:
+```
+sudo ./Paso00.sh
+```
+
+
 
 Ubicarse en el contenedor "namenode"
 
