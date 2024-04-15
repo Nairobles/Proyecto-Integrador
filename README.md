@@ -112,10 +112,21 @@ Finalmente copiamos los archivos csv provistos a HDFS:
 Para asegurarnos que los archivos se han copiado correctamente en el HDFS, ingresamos a la interfaz de hadoop a través nuestro navegador:
 
 Ingresamos la IP de nuestra máquina virtual y luego el puerto :9870 :
-```
+ 
  ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/d2482ea0-fa14-4e05-8722-7152d2a14c14)
 
-```
+Luego ingresamos a la solapa "Utilities" y seleccionamos la opción "Browse the fyle system":
+
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/06b848a1-d160-4c44-b124-d11b34c06c41)
+
+Ingresamos a "data":
+
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/707eb590-caea-4e39-811a-a21c516b7cfa)
+
+Y nos encontramos con todos los datos copiados:
+
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/0eb5a14e-c021-41c8-95cf-5bd1bd614374)
+
 
 ## 2) Hive
 
