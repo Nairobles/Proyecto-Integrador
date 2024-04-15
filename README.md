@@ -71,7 +71,7 @@ exit
 
 Y finalmente copiamos los archivos ubicados en la carpeta Datasets dentro del contenedor "namenode":
 
-a)Podemos copiarlos uno por uno, de la carpeta Datasets, con el siguiente comando:
+Podemos copiarlos uno por uno, de la carpeta Datasets, con el siguiente comando:
 ```
   sudo docker cp <path><archivo> namenode:/home/Datasets/<archivo>
 ```
@@ -128,17 +128,23 @@ Y nos encontramos con todos los datos copiados:
 ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/0eb5a14e-c021-41c8-95cf-5bd1bd614374)
 
 
-## 2) Hive
+## Creación y población de tablas
 
-Se puede utilizar el entorno docker-compose-v2.yml
+3)Para realizar este paso vamos a utilizar la herramienta **Hive** y el entorno docker-compose-v2.yml.
 
-Crear tablas en Hive, a partir de los csv ingestados en HDFS.
+La creación y población de tablas se va a dar a partir de los CSV ingestados en HDFS.
 
-Para esto, se puede ubicar dentro del contenedor correspondiente al servidor de Hive, y ejecutar desdea allí los scripts necesarios
-
+Primero nos ubicamos en el entorno correspondiente:
 ```
-  sudo docker exec -it hive-server bash
-  hive
+sudo docker-compose -f docker-compose-v2.yml up -d
+```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7d42ef75-d3a0-4d71-8c6c-57b0b4e40b84)
+
+
+Y ahora nos ubicamos dentro del contenedor correspondiente al servidor de Hive y ejecutamos desdea allí los scripts necesarios:
+```
+sudo docker exec -it hive-server bash
+hive
 ```
 
 Este proceso de creación las tablas debe poder ejecutarse desde un shell script.
