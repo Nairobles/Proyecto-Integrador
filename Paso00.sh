@@ -9,6 +9,6 @@ sudo docker cp Datasets/proveedor/Proveedor.csv namenode:/home/Datasets/Proveedo
 sudo docker cp Datasets/sucursal/Sucursal.csv namenode:/home/Datasets/Sucursal.csv
 sudo docker cp Datasets/tipodegasto/TiposDeGasto.csv namenode:/home/Datasets/TiposDeGasto.csv
 sudo docker cp Datasets/venta/Venta.csv namenode:/home/Datasets/Venta.csv
-sudo docker cp Datasets/data_nvo/Cliente.csv namenode:/home/Datasets/data_nvo/Cliente.csv
-sudo docker cp Datasets/data_nvo/Empleado.csv namenode:/home/Datasets/data_nvo/Empleado.csv
-sudo docker cp Datasets/data_nvo/Producto.csv namenode:/home/Datasets/data_nvo/Producto.csv
+sudo docker cp Datasets/data_nvo/Cliente.csv namenode:/home/Datasets/data_nvo
+sudo docker cp Datasets/data_nvo/Empleado.csv namenode:/home/Datasets/data_nvo
+sudo docker cp Datasets/data_nvo/Producto.csv namenode:/home/Datasets/data_nvo
