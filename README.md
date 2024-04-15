@@ -1,12 +1,10 @@
 # Practica Integradora
 
-Durante esta practica la idea es emular un ambiente de trabajo, desde un área de innovación solicitan construir un MVP(Producto viable mínimo) de un ambiente de Big Data donde se deban cargar unos archivos CSV que anteriormente se utilizaban en un datawarehouse en MySQl, pero ahora en un entorno de Hadoop.
+El objetivo principal de este trabajo es simular un ambiente de trabajo donde se nos solicita, desde un área de innovación, construir un Producto Viable Minimo de un ambiente de Big Data. Para lograr este objetivo debemos trasladar archivos CSV, que anteriormente se utilizacan en un Datawarehouse en MySQL, a un entorno de **Hadoop**.
 
-Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta tecnología por lo que no se asigno presupuesto alguna para esta iniciativa, de forma tal que por el momento no es posible utilizar un Vendor(Azure, AWS, Google) para implementar dicho entorno, es por esto que todo el MVP se deberá implementar utilizando Docker de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
+Se debe tener en cuenta que la gerencia de Infraestructura no está totalmente convencida de utilizar esta tecnología, por lo tanto no ha asignado preupuesto alguno para esta iniciativa. Es por ello que todo el MVP se deberá implementar utilizando **Docker** de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
 
-# Entorno Docker con Hadoop, Spark y Hive
-
-Se pesenta un entorno Docker con Hadoop (HDFS) y la implementación de:
+Nos vamos a encontrar trabajando con un entorno Docker con Hadoop(HDFS) y las siquientes herramientas:
 * Spark
 * Hive
 * HBase
@@ -15,27 +13,17 @@ Se pesenta un entorno Docker con Hadoop (HDFS) y la implementación de:
 * Zeppelin
 * Kafka
 
+## ¡Comencemos! ##
 
-Es importante mencionar que el entorno completo consume muchos recursos de su equipo, motivo por el cuál, se propondrán ejercicios pero con ambientes reducidos, en función de las herramientas utilizadas.
+1)El primer paso será dar inicio a nuestra maquina virtual y posicionarnos en la consola de Putty donde ejecutaremos los siguientes comandos:
 
-Ejecute `docker network inspect` en la red (por ejemplo, `docker-hadoop-spark-hive_default`) para encontrar la IP en la que se publican las interfaces de hadoop. Acceda a estas interfaces con las siguientes URL:
-
+Clonar el repositorio
 ```
-Namenode: http://<IP_Anfitrion>:9870/dfshealth.html#tab-overview
-Datanode: http://<IP_Anfitrion>:9864/
-Spark master: http://<IP_Anfitrion>:8080/
-Spark worker: http://<IP_Anfitrion>:8081/	
-HBase Master-Status: http://<IP_Anfitrion>:16010
-HBase Zookeeper_Dump: http://<IP_Anfitrion>:16010/zk.jsp
-HBase Region_Server: http://<IP_Anfitrion>:16030
-Zeppelin: http://<IP_Anfitrion>:8888
-Neo4j: http://<IP_Anfitrion>:7474
+git clone https://github.com/lopezdar222/herramientas_big_data.git
 ```
 
-Para implementar ejecute
-```
-  git clone https://github.com/lopezdar222/herramientas_big_data
-  cd herramientas_big_data
+
+cd herramientas_big_data
   sudo docker-compose -f docker-compose-vX.yml up -d
 ```
 
