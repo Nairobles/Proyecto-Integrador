@@ -75,45 +75,47 @@ a)Podemos copiarlos uno por uno, de la carpeta Datasets, con el siguiente comand
 ```
   sudo docker cp <path><archivo> namenode:/home/Datasets/<archivo>
 ```
-Por ejemplo:
+Aqui los comandos:
 ```
- sudo docker cp Datasets/canaldeventa/CanalDeVenta.csv namenode:/home/Datasets/canaldeventa/CanalDeVenta.csv
-```
-b)O bien ejecutamos el archivo 'Paso00.sh' que contiene los comandos para copiar los archivos al namenode. 
-
-*Nota: Si tomamos este camino primero debemos modificar algunos permisos para que el archivo sea ejecutable:*
-
-Permisos:
-```
-sudo chmod +x Paso00.sh
-```
-Ejecución:
-```
-sudo ./Paso00.sh
-```
-
-
-
-Ubicarse en el contenedor "namenode"
-
-```
-  sudo docker exec -it namenode bash
+sudo docker cp Datasets/canaldeventa/CanalDeVenta.csv namenode:/home/Datasets/CanalDeVenta.csv
+sudo docker cp Datasets/calendario/Calendario.csv namenode:/home/Datasets/Calendario.csv
+sudo docker cp Datasets/cliente/Cliente.csv namenode:/home/Datasets/Cliente.csv
+sudo docker cp Datasets/compra/Compra.csv namenode:/home/Datasets/Compra.csv
+sudo docker cp Datasets/empleado/Empleado.csv namenode:/home/Datasets/Empleado.csv
+sudo docker cp Datasets/gasto/Gasto.csv namenode:/home/Datasets/Gasto.csv
+sudo docker cp Datasets/producto/Producto.csv namenode:/home/Datasets/Producto.csv
+sudo docker cp Datasets/proveedor/Proveedor.csv namenode:/home/Datasets/Proveedor.csv
+sudo docker cp Datasets/sucursal/Sucursal.csv namenode:/home/Datasets/Sucursal.csv
+sudo docker cp Datasets/tipodegasto/TiposDeGasto.csv namenode:/home/Datasets/TiposDeGasto.csv
+sudo docker cp Datasets/venta/Venta.csv namenode:/home/Datasets/Venta.csv
+sudo docker cp Datasets/data_nvo/Cliente.csv namenode:/home/Datasets/data_nvo
+sudo docker cp Datasets/data_nvo/Empleado.csv namenode:/home/Datasets/data_nvo
+sudo docker cp Datasets/data_nvo/Producto.csv namenode:/home/Datasets/data_nvo
 ```
 
-Crear un directorio en HDFS llamado "/data".
+Nos ubicamos en el contenedor "namenode":
 
 ```
-  hdfs dfs -mkdir -p /data
+sudo docker exec -it namenode bash
 ```
 
-Copiar los archivos csv provistos a HDFS:
+Creamos un directorio en HDFS llamado "/data":
+
+```
+hdfs dfs -mkdir -p /data
+```
+
+Finalmente copiamos los archivos csv provistos a HDFS:
 ```
   hdfs dfs -put /home/Datasets/* /data
 ```
+Para asegurarnos que los archivos se han copiado correctamente en el HDFS, ingresamos a la interfaz de hadoop a través nuestro navegador:
 
-Este proceso de creación de la carpeta data y copiado de los arhivos, debe poder ejecutarse desde un shell script.
+Ingresamos la IP de nuestra máquina virtual y luego el puerto :9870 :
+```
+ ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/d2482ea0-fa14-4e05-8722-7152d2a14c14)
 
-Nota: Busque dfs.blocksize y dfs.replication en http://<IP_Anfitrion>:9870/conf para encontrar los valores de tamaño de bloque y factor de réplica respectivamente entre otras configuraciones del sistema Hadoop.
+```
 
 ## 2) Hive
 
