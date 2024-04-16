@@ -141,7 +141,7 @@ sudo docker-compose -f docker-compose-v2.yml up -d
 ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7d42ef75-d3a0-4d71-8c6c-57b0b4e40b84)
 
 
-Y ahora nos ubicamos dentro del contenedor correspondiente al servidor de Hive y ejecutamos desdea allí los scripts necesarios:
+Luego nos ubicamos dentro del contenedor correspondiente al servidor de Hive y ejecutamos desdea allí los scripts necesarios:
 ```
 sudo docker exec -it hive-server bash
 hive
