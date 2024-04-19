@@ -2,18 +2,27 @@
 ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/456ba8fc-ec3d-4f67-8a95-0ccfc2545c67)
 
 
-El objetivo principal de este trabajo es simular un ambiente de trabajo donde se nos solicita, desde un área de innovación, construir un Producto Viable Minimo(MVP) de un ambiente de Big Data. Para lograr este objetivo debemos trasladar archivos CSV (que anteriormente se utilizaban en un Datawarehouse en MySQL) a un entorno de **Hadoop**.
+El objetivo principal de este trabajo es simular un ambiente de trabajo donde se nos solicita, desde un área de innovación, construir un Producto Viable Minimo(MVP) de un ambiente de Big Data. 
+El MVP es una metodología de desarrollo de productos o servicios que se centra en crear un producto con el mínimo conjunto de características necesarias para validar su viabilidad en el mercado y obtener retroalimentación de los usuarios lo antes posible. La idea detrás de este procedimiento es lanzar algo lo suficientemente funcional como para que los usuarios puedan interactuar con él y proporcionar comentarios y datos de uso, pero sin gastar recursos excesivos en el desarrollo de características complejas que pueden no ser necesarias o relevantes para los usuarios.
+
+Para lograr este objetivo debemos trasladar archivos CSV (que anteriormente se utilizaban en un Datawarehouse en MySQL) a un entorno de **Hadoop**.
 
 Se debe tener en cuenta que la gerencia de Infraestructura no está totalmente convencida de utilizar esta tecnología, por lo tanto no ha asignado presupuesto alguno para esta iniciativa. Es por ello que todo el MVP se deberá implementar utilizando **Docker** de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
 
 Nos vamos a encontrar trabajando con un entorno Docker con Hadoop(HDFS) e implementando las siquientes herramientas:
-* Spark
-* Hive
-* HBase
-* MongoDB
-* Neo4J
-* Zeppelin
-* Kafka
+* *Spark*: Apache Spark es un framework de computación en clúster de código abierto que proporciona un **potente motor de procesamiento de datos y análisis en memoria**. Se utiliza para realizar análisis de datos de gran escala, procesamiento de datos en tiempo real, procesamiento de lotes, aprendizaje automático y más. Spark es conocido por su velocidad y capacidad de procesamiento distribuido.
+
+* *Hive*: Apache Hive es una infraestructura de **almacenamiento** y procesamiento de datos construida sobre Hadoop que facilita el análisis de grandes conjuntos de datos utilizando un lenguaje **similar a SQL** llamado HiveQL. Hive permite a los usuarios consultar, analizar y procesar datos almacenados en Hadoop **HDFS (Sistema de Archivos Distribuido de Hadoop)** de manera eficiente y escalable.
+
+* *HBase*: Apache HBase es una **base de datos NoSQL distribuida y escalable** diseñada para proporcionar acceso aleatorio y en tiempo real a grandes volúmenes de datos no estructurados o semi-estructurados. HBase se ejecuta sobre Hadoop HDFS y es adecuado para aplicaciones que requieren una alta disponibilidad y rendimiento para operaciones de lectura y escritura.
+
+* *MongoDB*: MongoDB es una base de datos NoSQL de código abierto y **orientada a documentos** que se utiliza para almacenar datos en formato JSON-like (BSON). MongoDB es conocido por su escalabilidad, flexibilidad y capacidad para manejar datos semi-estructurados o no estructurados. Es ampliamente utilizado en aplicaciones web, móviles y de Internet de las Cosas (IoT).
+
+* *Neo4J*: Neo4j es una **base de datos de grafos** de código abierto diseñada para almacenar y consultar datos altamente conectados, como redes sociales, recomendaciones de productos, sistemas de recomendación y análisis de redes. Neo4j utiliza un modelo de datos de grafo que consiste en nodos, relaciones y propiedades para representar y consultar relaciones complejas entre entidades.
+
+* *Zeppelin*: Apache Zeppelin es un cuaderno de código abierto basado en web que **permite a los usuarios crear y compartir documentos interactivos que contienen código, visualizaciones y narrativas.** Zeppelin admite varios lenguajes de programación, incluidos Scala, Python, SQL y R, lo que lo hace útil para la **exploración de datos, el análisis de datos y la creación de informes interactivos**.
+
+* *Kafka*: Apache Kafka es una **plataforma de streaming** de código abierto que se utiliza para la ingestión, el almacenamiento y el procesamiento de datos en tiempo real a gran escala. Kafka es conocido por su **alta velocidad, durabilidad y capacidad de escala horizontal.** Se utiliza en una amplia variedad de aplicaciones, como la ingesta de registros, el procesamiento de eventos en tiempo real, la integración de sistemas y la replicación de datos.
 
 Si no estas interiorizado en el mundo de la Big Data, te invito a leer el siguiente articulo:
 https://www.powerdata.es/big-data
