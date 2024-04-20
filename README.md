@@ -170,25 +170,26 @@ hive –f /home/Paso02.hql
 
 ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7a6f5979-3f05-474d-882d-ae37a7cd2939)
 
-
-
-
-
-Luego nos ubicamos dentro del contenedor correspondiente al servidor de Hive y ejecutamos desdea allí los scripts necesarios:
+Para chequear la información ingresamos a hive desde el shell Bash:
 ```
-sudo docker exec -it hive-server bash
 hive
 ```
-![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/1c752bdf-5f57-4d0d-a6cc-b845446bef20)
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7eddd18d-8b44-467c-80f5-0cff84ebb21c)
 
-Este proceso de creación las tablas debe poder ejecutarse desde un shell script.
-
-Para ejecutar un script de Hive, requiere el comando:
+Consultamos que exita la base de datos:
 ```
-  hive -f <script.hql>
+hive > SHOW DATABASES;
 ```
-![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/e89e2444-5211-4266-867f-ed67bfb10b47)
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/648b8a51-c34d-40b8-a9e6-c8becccc0ed2)
 
+Ahora consultamos las tablas usando la base de datos 'integrador':
+```
+hive > use integrador;
+hive > show TABLES;
+```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/4b9d2cdc-8e77-4bca-847b-2f334a77e2af)
+
+*Nota: el "hive >" esta escrito para entender que nos encontramos dentro de este Shell bash, no se lo debe escribir*
 
 ## 3) Formatos de Almacenamiento
 
