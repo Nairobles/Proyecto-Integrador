@@ -150,18 +150,45 @@ sudo docker-compose -f docker-compose-v2.yml up -d
 ![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7d42ef75-d3a0-4d71-8c6c-57b0b4e40b84)
 
 
+Para crear las tablas vamos a copiar el script del archivo Paso02.hql en /home del contenedor hive-server:
+```
+docker cp Paso02.hql hive-server:/home/
+```
+
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7fd21c22-c8a6-48f3-9c18-216fa3c8af6a)
+
+Y luego nos ubicamos en el contenedor hive-server e iniciamos una sesión interactiva para ejecutar un shell Bash dentro de él:
+```
+sudo docker exec -it hive-server bash
+```
+
+Ahora ejecutamos el script de Hive almacenado en un archivo Paso02.hql:
+```
+hive –f /home/Paso02.hql
+```
+*Nota: Para ejecutar un script de Hive se requiere el comando "hive -f <script.hql>" ya que "-f" es la opción que se utiliza para especificar que se va a ejecutar un script almacenado en un archivo*
+
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/7a6f5979-3f05-474d-882d-ae37a7cd2939)
+
+
+
+
+
 Luego nos ubicamos dentro del contenedor correspondiente al servidor de Hive y ejecutamos desdea allí los scripts necesarios:
 ```
 sudo docker exec -it hive-server bash
 hive
 ```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/1c752bdf-5f57-4d0d-a6cc-b845446bef20)
 
 Este proceso de creación las tablas debe poder ejecutarse desde un shell script.
 
-Nota: Para ejecutar un script de Hive, requiere el comando:
+Para ejecutar un script de Hive, requiere el comando:
 ```
   hive -f <script.hql>
 ```
+![image](https://github.com/Nairobles/Proyecto-Integrador/assets/155001844/e89e2444-5211-4266-867f-ed67bfb10b47)
+
 
 ## 3) Formatos de Almacenamiento
 
